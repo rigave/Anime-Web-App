@@ -1,0 +1,9 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container">
+    <div class="anime-card">
+        <% for(let character of characters) { %>
+            <a class="wrapper" href="/<%= character.mal_id %>/characters"><img class="image" src="<%= character.images.jpg.image_url %>" alt=""></a>
+        <% } %>
+    </div>
+</div>

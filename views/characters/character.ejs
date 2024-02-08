@@ -1,0 +1,45 @@
+<% layout('layouts/boilerplate') %>
+
+<h1 class="text-center mb-0 mt-5"><%= character.name %></h1>
+<% if(character.nicknames.length > 0) { %>
+    <p class="card-text text-center"><small class="text-body-secondary">( <%= character.nicknames %> )</small></p>
+<% } %>
+<div class="d-flex justify-content-center mb-5 mt-3">
+    <div class="card mb-3" style="max-width: 720px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="<%= character.images.jpg.image_url %>" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Favorite: <%= character.favorites %></h5>
+              <p class="card-text pb-3">
+                    <% if(character.about.substring() === null) { %>
+                        ?
+                    <% } else { %>
+                        <%= character.about.substring(0, 500) %>
+                        <span id="dots">...</span>
+                        <span id="more"><%= character.about.substring(551, character.about.length -1) %></span>
+                        <a class="link-info btn" onclick="myFunction()" id="myBtn">Read more</a>
+                    <% } %>
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<div class="album py-3 bg-body-tertiary">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-4 row-cols-md-6 g-3">
+        <% for(let pic of characterPicData.data) { %>
+            <div class="col m-3">
+                <div class="card shadow-sm">
+                    <a href="<%= pic.jpg.image_url %>" download="anime">
+                        <img src="<%= pic.jpg.image_url %>" alt="" height="300" width="200">
+                    </a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+l<% layout('layouts/boilerplate') %>
+
+<div class="container d-flex justify-content-center">
+  <form action="/characters" method="POST" novalidate class="row g-3 mt-3 mb-0 validated-form">
+    <div class="col-auto d-flex mb-5">
+      <input 
+      name="character" 
+      type="text" 
+      class="form-control rounded-nav" 
+      id="character" 
+      placeholder="Search Anime Character"
+      required>
+      <button type="submit" class="btn btn-outline-primary">
+        Search
+      </button>
+    </div>
+  </form>
+</div>
+
+
+<div class="anime-card">
+    <% if(anime.length === 0) { %>
+      <h5 class="text-danger text-center"> Sorry!!! Not Data Found</h5>
+    <% }else { %>
+      <% for(let a of anime) { %>
+        <a class="wrapper" href="/<%= a.mal_id %>"><img class="image" src="<%= a.images.jpg.large_image_url %>" alt=""></a>
+      <% } %>
+    <% } %>
+</div>
