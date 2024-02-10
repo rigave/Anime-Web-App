@@ -5,7 +5,7 @@ const anime = require('../controllers/anime');
 const catchAsync = require('../utils/catchAsync');
 
 router.get('/', catchAsync(anime.index));
-router.post('/', catchAsync(anime.searchAnime));
+router.post('/anime/search', catchAsync(anime.searchAnime));
 router.get('/aired', catchAsync(anime.airedAnime));
 router.get('/upcoming', catchAsync(anime.upcomingAnime));
 router.get('/favorite', catchAsync(anime.favoriteAnime));
